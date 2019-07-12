@@ -1,0 +1,22 @@
+{
+    "name": "sunaoka/emoji-parser",
+    "description": "Parsing unicode emoji text file using PHP",
+    "keywords": ["emoji", "parser", "emoji-test.txt"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "sunaoka",
+            "email": "sunaoka@pocari.org"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sunaoka\\EmojiParser\\": "src/"
+        }
+    }
+}
