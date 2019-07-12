@@ -1,0 +1,22 @@
+language: php
+
+php:
+  - '7.1'
+  - '7.2'
+  - '7.3'
+
+before_script:
+  - travis_retry composer self-update
+  - travis_retry composer install --no-interaction --prefer-source --dev
+
+script:
+  - vendor/bin/phpunit --coverage-clover=coverage.xml
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+notifications:
+  slack:
+    on_success: change
+    on_failure: always
+    secure: yog1ng6Mip6IPyts0uXrBhKvMJyqzADunc3skYtAYX8p4QxuPzzDjo7HtWiZ79HoQ4aMLB5C5VZS03tGIacOB++SRTUzhBscuEN2UYtfT+nV54tIq36Q4jZF0+wqYf/3c6esZla5k8BEOjEmEKiw3FoqCDI09hAeo+tR1ibNuZWhQb74h9G/BhQ0aGLaogBO5fuq7uUpwCToocQ3mAOUaeAz2G4Be192zXr2j8zyaeXfcxYu+fZg1tK2SxS2ifFmPzmTeeQaoiVGYtiYw5I9p828KpKegb6HXtEQImg7L4QKs7cJwxvLspjxSy9ksL9y0nuVhbkARQPKNiL1u7ZG8YBvY91i+HmBr1eourJzzLJC26UJTamHUpXdH90sqj3iI0uAoiqmejyPPXV5zNrUIpZG+kMoTZkFA3jpxn0x5WMQBdeeEY1C/vjcoj3QzU3kRXsnt02TLdnqjXLZz9zrw+DMyajalIUKSS5OHE+Rz32QUGcjj8Pf7KdiXJyZ6ez/NRafTPOKn32uYx8g2tH6lZ2EpXo2S8Np40wbyYnTWTRUbTY8C5Ac8iUSpXRFJ5RrZbFV7MaQXfW7S8BFgzJMUU9uZBLxs32Kx9i8BZaDEdh2RR9IxM6Ax8KiP3QKoF73xM16rCUSYOcdlXZQxvK186jRbRaO3lA0noawN+PnIWc=
