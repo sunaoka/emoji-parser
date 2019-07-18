@@ -41,4 +41,76 @@ class EmojiParserTest extends TestCase
         $data = $emojiParser->parse();
         $this->assertSame(3836, count($data['emoji']));
     }
+
+    public function testSortNone()
+    {
+        $emojiParser = new EmojiParser(__DIR__ . '/emoji-test/12.0.txt');
+        $data = $emojiParser->parse();
+
+        $codePoints = array_map(function($emoji) {
+            return $emoji['code_point'];
+        }, array_values(array_filter($data['emoji'], function ($emoji) {
+            return $emoji['group'] === 'Smileys & Emotion' && $emoji['subgroup'] === 'face-affection';
+        })));
+
+        $this->assertSame([
+            '1F970',
+            '1F60D',
+            '1F929',
+            '1F618',
+            '1F617',
+            '263A FE0F',
+            '263A',
+            '1F61A',
+            '1F619',
+        ], $codePoints);
+    }
+
+    public function testSortAsc()
+    {
+        $emojiParser = new EmojiParser(__DIR__ . '/emoji-test/12.0.txt', ['sort' => SORT_ASC]);
+        $data = $emojiParser->parse();
+
+        $codePoints = array_map(function($emoji) {
+            return $emoji['code_point'];
+        }, array_values(array_filter($data['emoji'], function ($emoji) {
+            return $emoji['group'] === 'Smileys & Emotion' && $emoji['subgroup'] === 'face-affection';
+        })));
+
+        $this->assertSame([
+            '263A',
+            '263A FE0F',
+            '1F60D',
+            '1F617',
+            '1F618',
+            '1F619',
+            '1F61A',
+            '1F929',
+            '1F970',
+        ], $codePoints);
+    }
+
+    public function testSortDesc()
+    {
+        $emojiParser = new EmojiParser(__DIR__ . '/emoji-test/12.0.txt', ['sort' => SORT_DESC]);
+        $data = $emojiParser->parse();
+
+        $codePoints = array_map(function($emoji) {
+            return $emoji['code_point'];
+        }, array_values(array_filter($data['emoji'], function ($emoji) {
+            return $emoji['group'] === 'Smileys & Emotion' && $emoji['subgroup'] === 'face-affection';
+        })));
+
+        $this->assertSame([
+            '1F970',
+            '1F929',
+            '1F61A',
+            '1F619',
+            '1F618',
+            '1F617',
+            '1F60D',
+            '263A FE0F',
+            '263A',
+        ], $codePoints);
+    }
 }
