@@ -51,9 +51,30 @@ output is ...
   :
 ```
 
+## Options
+
+### sort
+
+see: [Arrays > Predefined Constants > Sorting order flags](https://php.net/array.constants).
+
+```php
+<?php
+
+use Sunaoka\EmojiParser\EmojiParser;
+
+$options = [
+    'sort' => SORT_ASC,
+];
+
+$emojiParser = new EmojiParser('emoji-test.txt', $options);
+$data = $emojiParser->parse();
+```
+
 ## emoji-test.txt
 
-- Version 12.0: https://unicode.org/Public/emoji/12.0/emoji-test.txt
-- Version 11.0: https://unicode.org/Public/emoji/11.0/emoji-test.txt
-- Version 5.0: https://unicode.org/Public/emoji/5.0/emoji-test.txt
-- Version 4.0: https://unicode.org/Public/emoji/4.0/emoji-test.txt
+| Version | URL                                                  |
+| ------: | ---------------------------------------------------- |
+|    12.0 | https://unicode.org/Public/emoji/12.0/emoji-test.txt |
+|    11.0 | https://unicode.org/Public/emoji/11.0/emoji-test.txt |
+|     5.0 | https://unicode.org/Public/emoji/5.0/emoji-test.txt  |
+|     4.0 | https://unicode.org/Public/emoji/4.0/emoji-test.txt  |
