@@ -44,7 +44,7 @@ class EmojiParser
         $blocks = explode("\n\n", trim($contents));
 
         $result = $this->parseHeader(array_shift($blocks));
-        $result['emoji'] = $this->parseBody($blocks);
+        $result['emoji'] = $this->parseBody($blocks, $result['version']);
 
         return $result;
     }
@@ -65,7 +65,7 @@ class EmojiParser
         return $result;
     }
 
-    private function parseBody(array $blocks)
+    private function parseBody(array $blocks, $emojiVersion)
     {
         $result = [];
         $group = null;
@@ -81,8 +81,14 @@ class EmojiParser
                 array_shift($rows);
                 $subgroups = [];
                 foreach ($rows as $row) {
-                    // Format: code points; status # emoji name
-                    list($codePoint, $status, $emoji, $name) = sscanf($row, '%[^;]; %[^#] # %[^ ] %[^$]');
+                    if ($emojiVersion >= 12.1) {
+                        // Format: code points; status # emoji EX.X name
+                        list($codePoint, $status, $emoji, $version, $name) = sscanf($row, '%[^;]; %[^#] # %[^ ] E%[^ ] %[^$]');
+                    } else {
+                        // Format: code points; status # emoji name
+                        list($codePoint, $status, $emoji, $name) = sscanf($row, '%[^;]; %[^#] # %[^ ] %[^$]');
+                        $version = null;
+                    }
 
                     $subgroups[] = [
                         'group'      => $group,
@@ -91,6 +97,7 @@ class EmojiParser
                         'status'     => trim($status),
                         'emoji'      => trim($emoji),
                         'name'       => trim($name),
+                        'version'    => (float)trim($version),
                     ];
                 }
                 if (! is_null($this->options['sort'])) {

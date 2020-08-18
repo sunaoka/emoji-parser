@@ -33,9 +33,9 @@ output is ...
 
 ```text
 (
-    [date] => 2019-01-27, 15:43:01 GMT
-    [version] => 12.0
-    [url] => https://unicode.org/Public/emoji/12.0/emoji-test.txt
+    [date] => 2020-01-21, 13:40:25 GMT
+    [version] => 13.0
+    [url] => https://unicode.org/Public/emoji/13.0/emoji-test.txt
     [emoji] => Array
         (
             [0] => Array
@@ -46,6 +46,7 @@ output is ...
                     [status] => fully-qualified
                     [emoji] => 😀
                     [name] => grinning face
+                    [version] => 1
                 )
   :
   :
@@ -74,6 +75,8 @@ $data = $emojiParser->parse();
 
 | Version | URL                                                  |
 | ------: | ---------------------------------------------------- |
+|    13.0 | https://unicode.org/Public/emoji/13.0/emoji-test.txt |
+|    12.1 | https://unicode.org/Public/emoji/12.1/emoji-test.txt |
 |    12.0 | https://unicode.org/Public/emoji/12.0/emoji-test.txt |
 |    11.0 | https://unicode.org/Public/emoji/11.0/emoji-test.txt |
 |     5.0 | https://unicode.org/Public/emoji/5.0/emoji-test.txt  |
