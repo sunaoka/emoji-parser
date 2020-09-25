@@ -56,6 +56,13 @@ class EmojiParserTest extends TestCase
         $this->assertSame(4168, count($data['emoji']));
     }
 
+    public function testParse13_1()
+    {
+        $emojiParser = new EmojiParser(__DIR__ . '/emoji-test/13.1.txt');
+        $data = $emojiParser->parse();
+        $this->assertSame(4590, count($data['emoji']));
+    }
+
     public function testSortNone()
     {
         $emojiParser = new EmojiParser(__DIR__ . '/emoji-test/12.0.txt');
