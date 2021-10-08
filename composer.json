@@ -20,5 +20,10 @@
         "psr-4": {
             "Sunaoka\\EmojiParser\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sunaoka\\EmojiParser\\Tests\\": "tests/"
+        }
     }
 }

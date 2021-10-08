@@ -18,56 +18,56 @@ class EmojiParserTest extends TestCase
     {
         $emojiParser = new EmojiParser(__DIR__ . '/emoji-test/4.0.txt');
         $data = $emojiParser->parse();
-        $this->assertSame(2822, count($data['emoji']));
+        $this->assertCount(2822, $data['emoji']);
     }
 
     public function testParse5_0()
     {
         $emojiParser = new EmojiParser(__DIR__ . '/emoji-test/5.0.txt');
         $data = $emojiParser->parse();
-        $this->assertSame(3377, count($data['emoji']));
+        $this->assertCount(3377, $data['emoji']);
     }
 
     public function testParse11_0()
     {
         $emojiParser = new EmojiParser(__DIR__ . '/emoji-test/11.0.txt');
         $data = $emojiParser->parse();
-        $this->assertSame(3570, count($data['emoji']));
+        $this->assertCount(3570, $data['emoji']);
     }
 
     public function testParse12_0()
     {
         $emojiParser = new EmojiParser(__DIR__ . '/emoji-test/12.0.txt');
         $data = $emojiParser->parse();
-        $this->assertSame(3836, count($data['emoji']));
+        $this->assertCount(3836, $data['emoji']);
     }
 
     public function testParse12_1()
     {
         $emojiParser = new EmojiParser(__DIR__ . '/emoji-test/12.1.txt');
         $data = $emojiParser->parse();
-        $this->assertSame(4022, count($data['emoji']));
+        $this->assertCount(4022, $data['emoji']);
     }
 
     public function testParse13_0()
     {
         $emojiParser = new EmojiParser(__DIR__ . '/emoji-test/13.0.txt');
         $data = $emojiParser->parse();
-        $this->assertSame(4168, count($data['emoji']));
+        $this->assertCount(4168, $data['emoji']);
     }
 
     public function testParse13_1()
     {
         $emojiParser = new EmojiParser(__DIR__ . '/emoji-test/13.1.txt');
         $data = $emojiParser->parse();
-        $this->assertSame(4590, count($data['emoji']));
+        $this->assertCount(4590, $data['emoji']);
     }
 
     public function testParse14_0()
     {
         $emojiParser = new EmojiParser(__DIR__ . '/emoji-test/14.0.txt');
         $data = $emojiParser->parse();
-        $this->assertSame(4702, count($data['emoji']));
+        $this->assertCount(4702, $data['emoji']);
     }
 
     public function testSortNone()
