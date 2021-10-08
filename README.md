@@ -2,6 +2,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/sunaoka/emoji-parser/v/stable)](https://packagist.org/packages/sunaoka/emoji-parser)
 [![License](https://poser.pugx.org/sunaoka/emoji-parser/license)](https://packagist.org/packages/sunaoka/emoji-parser)
+[![PHP](https://img.shields.io/packagist/php-v/sunaoka/emoji-parser)](composer.json)
 [![Test](https://github.com/sunaoka/emoji-parser/actions/workflows/test.yml/badge.svg)](https://github.com/sunaoka/emoji-parser/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/sunaoka/emoji-parser/branch/develop/graph/badge.svg)](https://codecov.io/gh/sunaoka/emoji-parser)
 
