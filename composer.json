@@ -10,9 +10,11 @@
             "email": "sunaoka@pocari.org"
         }
     ],
-    "require": {},
+    "require": {
+        "php": "^7.0 || ^8.0"
+    },
     "require-dev": {
-        "phpunit/phpunit": "^8.2"
+        "phpunit/phpunit": "^6.5 || ^7.5 || ^8.2 || ^9.3"
     },
     "autoload": {
         "psr-4": {
