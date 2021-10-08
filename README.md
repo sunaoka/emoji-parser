@@ -14,7 +14,7 @@ Library to parse `emoji-test.txt`
 ## Installation
 
 ```bash
-composer require --dev sunaoka/php-parser
+composer require sunaoka/emoji-parser
 ```
 
 ## Usage
