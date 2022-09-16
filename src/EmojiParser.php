@@ -37,7 +37,7 @@ class EmojiParser
      *
      * @return array
      */
-    public function parse()
+    public function parse(): array
     {
         $contents = $this->load();
 
@@ -49,7 +49,7 @@ class EmojiParser
         return $result;
     }
 
-    private function parseHeader(string $block)
+    private function parseHeader(string $block): array
     {
         $result = [];
         $rows = explode("\n", $block);
@@ -65,7 +65,7 @@ class EmojiParser
         return $result;
     }
 
-    private function parseBody(array $blocks, $emojiVersion)
+    private function parseBody(array $blocks, $emojiVersion): array
     {
         $result = [];
         $group = null;
@@ -87,7 +87,7 @@ class EmojiParser
                     } else {
                         // Format: code points; status # emoji name
                         list($codePoint, $status, $emoji, $name) = sscanf($row, '%[^;]; %[^#] # %[^ ] %[^$]');
-                        $version = null;
+                        $version = '';
                     }
 
                     $subgroups[] = [
@@ -110,7 +110,7 @@ class EmojiParser
         return $result;
     }
 
-    private function sort(array $array, string $key)
+    private function sort(array $array, string $key): array
     {
         foreach ($array as $row) {
             $sort[] = $row[$key];
